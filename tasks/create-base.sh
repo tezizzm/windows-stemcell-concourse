@@ -244,6 +244,14 @@ else
 fi
 
 echo "--------------------------------------------------------"
+echo "Power on VM"
+echo "--------------------------------------------------------"
+if ! exists=$(vmExists "${baseVMIPath}"); then
+	writeErr "could not look for base VM at path ${baseVMIPath}"
+	exit 1
+fi
+
+echo "--------------------------------------------------------"
 echo "Validating vmware tools"
 echo "--------------------------------------------------------"
 

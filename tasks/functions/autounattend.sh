@@ -95,7 +95,8 @@ function formatAutoUnattend() {
 			return 1
 		fi
 	fi
-
+	
+	echo Sync Commands ${sync_commands}
 	echo Unattend Path ${unattend_path}
 
 	return 0
