@@ -256,9 +256,8 @@ fi
 	exit 1
 )
 
-if ! validateAndPowerOn "${baseVMIPath}" ${timeout}; then
+if ! validateAndPowerOn "${baseVMIPath}" ${timeout}; 1 then
 	writeErr "could not power on VM at path ${baseVMIPath}"
-	shutdownVM "${baseVMIPath}" 0 1
 	exit 1
 fi
 
