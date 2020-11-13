@@ -244,26 +244,6 @@ else
 fi
 
 echo "--------------------------------------------------------"
-echo "Power on VM"
-echo "--------------------------------------------------------"
-if ! exists=$(vmExists "${baseVMIPath}"); then
-	writeErr "could not look for base VM at path ${baseVMIPath}"
-	exit 1
-fi
-
-[[ ${exists} == *"false"* ]] && (
-	writeErr "no base VM found at path ${baseVMIPath}"
-	exit 1
-)
-
-if ! validateAndPowerOn "${baseVMIPath}" ${timeout} 1; then
-	writeErr "could not power on VM at path ${baseVMIPath}"
-	exit 1
-fi
-
-echo "Done"
-
-echo "--------------------------------------------------------"
 echo "Validating vmware tools"
 echo "--------------------------------------------------------"
 
