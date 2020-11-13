@@ -96,6 +96,8 @@ function formatAutoUnattend() {
 		fi
 	fi
 
+	echo Unattend Path ${unattend_path}
+
 	return 0
 }
 
