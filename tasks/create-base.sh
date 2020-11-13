@@ -251,6 +251,19 @@ if ! exists=$(vmExists "${baseVMIPath}"); then
 	exit 1
 fi
 
+[[ ${exists} == *"false"* ]] && (
+	writeErr "no base VM found at path ${baseVMIPath}"
+	exit 1
+)
+
+if ! validateAndPowerOn "${baseVMIPath}" ${timeout}; then
+	writeErr "could not power on VM at path ${baseVMIPath}"
+	shutdownVM "${baseVMIPath}" 0 1
+	exit 1
+fi
+
+echo "Done"
+
 echo "--------------------------------------------------------"
 echo "Validating vmware tools"
 echo "--------------------------------------------------------"
